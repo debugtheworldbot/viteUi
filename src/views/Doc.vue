@@ -1,6 +1,7 @@
 <template>
     <div>
         <TopNav/>
+
         <div class="content">
             <aside>aside</aside>
             <main>main</main>
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+
     import TopNav from "../components/TopNav.vue";
     export default {
         name: "Doc",
