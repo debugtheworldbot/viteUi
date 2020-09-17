@@ -2,12 +2,12 @@
     <TopNav/>
     <div class="banner">
         <h1>UI</h1>
-        <h2>subs</h2>
-        <p>
-            <a href="github.com">github</a>
+        <h2>a simple Ui</h2>
+        <p class="actions">
+            <a href="">github</a>
             <a href="">begin</a>
         </p>
-    </div>w
+    </div>
 
 </template>
 
@@ -20,7 +20,25 @@
 </script>
 
 <style lang="scss" scoped>
-    .topNav{
-        border: 1px solid  black;
+.banner {
+  padding: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: lightgreen;
+  > .actions{
+    padding: 8px 0;
+    a {
+      margin:0 8px;
+      background: #fff;
+      display: inline-block;
+      $h: 28px;
+      height: $h;
+      line-height: $h;
+      border-radius: $h/2;
+      padding: 0 8px;
     }
+  }
+}
 </style>
