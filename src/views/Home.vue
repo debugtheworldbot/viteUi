@@ -4,8 +4,8 @@
         <h1>UI</h1>
         <h2>a simple Ui</h2>
         <p class="actions">
-            <a href="">github</a>
-            <a href="">begin</a>
+            <a href="https://github.com/debugtheworldbot">github</a>
+            <router-link to="/doc">begin</router-link>
         </p>
     </div>
 
