@@ -1,12 +1,12 @@
 <template>
-<div>
-  button
-</div>
+  <Buttons>hello</Buttons>
 </template>
 
-<script>
+<script lang="ts">
+import Buttons from "../lib/Buttons.vue";
 export default {
-  name: "Button"
+  name: "Button",
+  components:{Buttons},
 }
 </script>
 
