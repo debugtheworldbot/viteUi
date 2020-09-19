@@ -1,13 +1,18 @@
 <template>
-  <Switchs />
+  <Switchs :value="v" @input="v = $event"/>
 </template>
 
 <script lang="ts">
 import Switchs from "../lib/Switch.vue"
+import {ref} from 'vue'
 
 export default {
   name: "Switch",
-  components:{Switchs}
+  components: {Switchs},
+  setup() {
+    const v = ref(true)
+    return {v}
+  }
 }
 </script>
 
