@@ -1,5 +1,5 @@
 <template>
-  <Switchs :value="v" @input="v = $event"/>
+  <Switchs v-model:value="boolean" />
 </template>
 
 <script lang="ts">
@@ -10,8 +10,8 @@ export default {
   name: "Switch",
   components: {Switchs},
   setup() {
-    const v = ref(true)
-    return {v}
+    const boolean = ref(true)
+    return { boolean}
   }
 }
 </script>
