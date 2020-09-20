@@ -28,7 +28,7 @@
   </div>
   <hr>
   <Buttons disabled>disabled</Buttons>
-  <Buttons :disabled="false" theme="text">disabled</Buttons>
+  <Buttons disabled theme="text">disabled</Buttons>
   <Buttons disabled theme="link">disabled</Buttons>
 </template>
 

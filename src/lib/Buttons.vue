@@ -37,6 +37,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey:grey;
 .default-button {
   box-sizing: border-box;
   height: $h;
@@ -146,21 +147,22 @@ $red: red;
       }
     }
   }
-  //&.default-theme-button {
-  //  &[disabled] {
-  //    cursor: not-allowed;
-  //    color: $grey;
-  //    &:hover {
-  //      border-color: $grey;
-  //    }
-  //  }
-  //}
-  //&.default-theme-link, &.default-theme-text {
-  //  &[disabled] {
-  //    cursor: not-allowed;
-  //    color: $grey;
-  //  }
-  //}
+  &.default-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.default-theme-link, &.default-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+    }
+  }
 }
 
 </style>
