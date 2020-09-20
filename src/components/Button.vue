@@ -30,6 +30,8 @@
   <Buttons disabled>disabled</Buttons>
   <Buttons disabled theme="text">disabled</Buttons>
   <Buttons disabled theme="link">disabled</Buttons>
+  <hr>
+  <Buttons loading>loading</Buttons>
 </template>
 
 <script lang="ts">

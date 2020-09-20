@@ -1,6 +1,7 @@
 <template>
 
-  <button class="default-button" :class="classes" :disabled="disabled">
+  <button class="default-button" :class="classes" :disabled="disabled" >
+    <span v-if="loading" class="defaultLoadingIndicator"></span>
     <slot />
   </button>
 </template>
@@ -14,6 +15,7 @@ export default {
     size:{type:String,default:'normal'},
     level:{type:String,default:'normal'},
     disabled:{type:Boolean,default:false},
+    loading:{type:Boolean,default:false},
   },
   setup(props){
     const {theme,size,level}=props
@@ -163,6 +165,23 @@ $grey:grey;
       color: $grey;
     }
   }
+  > .defaultLoadingIndicator{
+    position: inherit;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    margin-bottom: 2px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: default-spin 1s infinite linear;
+  }
+}
+@keyframes default-spin {
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(360deg)}
 }
 
 </style>
