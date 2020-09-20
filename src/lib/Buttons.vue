@@ -1,13 +1,20 @@
 <template>
 
-  <button>
+  <button :class="`theme-${theme}`">
     <slot />
   </button>
 </template>
 
-<script>
+<script lang="ts">
 export default {
-  name: "Buttons.vue"
+  name: "Buttons.vue",
+  props:{
+    theme:{type:String,default:'button'}
+  },
+  setup(){
+
+    return {}
+  }
 }
 </script>
 
