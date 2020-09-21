@@ -1,20 +1,23 @@
 <template>
-  <template v-if="visible">
-    <div class="gulu-dialog-overlay" @click="onClickOverLay"></div>
-    <div class="gulu-dialog-wrapper">
-      <div class="gulu-dialog">
-        <header><slot name="title"/> <span class="gulu-dialog-close" @click="close"></span></header>
-        <main>
-          <slot name="content" />
-        </main>
-        <footer>
-          <Buttons level="main" @click="ok">OK</Buttons>
-          <Buttons @click="cancel">Cancel</Buttons>
-        </footer>
+  <Teleport to="#app">
+    <template v-if="visible">
+      <div class="gulu-dialog-overlay" @click="onClickOverLay"></div>
+      <div class="gulu-dialog-wrapper">
+        <div class="gulu-dialog">
+          <header><slot name="title"/> <span class="gulu-dialog-close" @click="close"></span></header>
+          <main>
+            <slot name="content" />
+          </main>
+          <footer>
+            <Buttons level="main" @click="ok">OK</Buttons>
+            <Buttons @click="cancel">Cancel</Buttons>
+          </footer>
+        </div>
       </div>
-    </div>
 
-  </template>
+    </template>
+  </Teleport>
+
 
 
 </template>
