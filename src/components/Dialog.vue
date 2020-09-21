@@ -1,12 +1,13 @@
 <template>
-  <div>
-    dialog
-  </div>
+  <Dialogs/>
+
 </template>
 
-<script>
+<script lang="ts">
+import Dialogs from "../lib/Dialogs.vue";
 export default {
-  name: "Dialog"
+  name: "Dialog",
+  components:{Dialogs}
 }
 </script>
 
