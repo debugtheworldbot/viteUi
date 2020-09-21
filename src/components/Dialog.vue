@@ -1,7 +1,13 @@
 <template>
   <Dialogs v-model:visible="visible" :close-on-click-overlay="false" :ok="f1" :cancel="f2" title="wdnmd">
-    <div>hi</div>
-    <div>2  </div>
+    <template v-slot:title>
+      <strong>title</strong>
+    </template>
+    <template v-slot:content>
+      <div>hi</div>
+      <div>hi222</div>
+      <div>hi333</div>
+    </template>
   </Dialogs>
   <Buttons @click="toggle">toggle</Buttons>
 </template>
