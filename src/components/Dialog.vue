@@ -1,5 +1,5 @@
 <template>
-  <Dialogs :visible="visible"/>
+  <Dialogs v-model:visible="visible" :close-on-click-overlay="false" :ok="f1" :cancel="f2"/>
   <Buttons @click="toggle">toggle</Buttons>
 </template>
 
@@ -15,7 +15,11 @@ export default {
     const toggle=()=>{
       visible.value=!visible.value
     }
-    return {visible,toggle}
+    const f1=()=>{
+    }
+    const f2=()=>{
+    }
+    return {visible,toggle,f1,f2}
   }
 }
 </script>
