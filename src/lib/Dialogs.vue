@@ -3,10 +3,9 @@
     <div class="gulu-dialog-overlay" @click="onClickOverLay"></div>
     <div class="gulu-dialog-wrapper">
       <div class="gulu-dialog">
-        <header>标题 <span class="gulu-dialog-close" @click="close"></span></header>
+        <header> {{title}}<span class="gulu-dialog-close" @click="close"></span></header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot />
         </main>
         <footer>
           <Buttons level="main" @click="ok">OK</Buttons>
@@ -26,6 +25,7 @@ import Buttons from "./Buttons.vue";
 export default {
   name: "Dialogs",
   props: {
+    title:{type:String,default:'Title'},
     visible: {type: Boolean, default: false},
     closeOnClickOverlay: {type: Boolean, default: true},
     ok: {type: Function},

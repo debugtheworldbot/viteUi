@@ -1,5 +1,8 @@
 <template>
-  <Dialogs v-model:visible="visible" :close-on-click-overlay="false" :ok="f1" :cancel="f2"/>
+  <Dialogs v-model:visible="visible" :close-on-click-overlay="false" :ok="f1" :cancel="f2" title="wdnmd">
+    <div>hi</div>
+    <div>2  </div>
+  </Dialogs>
   <Buttons @click="toggle">toggle</Buttons>
 </template>
 
