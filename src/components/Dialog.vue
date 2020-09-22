@@ -32,7 +32,7 @@ export default {
     const f2=()=>{
     }
     const showDialog=()=>{
-      openDialog({title:'title',content:'content',ok(){console.log('ok')},cancel(){console.log('cancel')}})
+      openDialog({title:'title',content:'content',ok(){console.log('ok')},cancel(){console.log('cancel')},closeOnClickOverlay:false})
     }
     return {visible,toggle,f1,f2,showDialog}
   }
