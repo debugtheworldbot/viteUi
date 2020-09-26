@@ -1,7 +1,6 @@
 <template>
-  its tabs
-  <component :is="defaults[0]" />
-  <component :is="defaults[1]" />
+  <div v-for="(t,index) in titles" :key="index">{{t}}</div>
+  <component v-for="(c,index) in defaults" :is="c" :key="index"/>
 </template>
 
 <script lang="ts">
@@ -16,7 +15,10 @@ export default {
         throw new Error('必须是TabComponent！')
       }
     })
-    return {defaults}
+    const titles=defaults.map(tab=>{
+       return tab.props.title
+    })
+    return {defaults,titles}
   }
 }
 </script>

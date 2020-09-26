@@ -1,5 +1,6 @@
 <template>
-its tab
+<slot/>
+
 </template>
 
 <script>
