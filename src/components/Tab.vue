@@ -1,7 +1,7 @@
 <template>
   <Tabs>
     <TabComponent title="nv1">1</TabComponent>
-    <TabComponent title="nv1">2</TabComponent>
+    <TabComponent title="nv2">2</TabComponent>
   </Tabs>
 </template>
 
