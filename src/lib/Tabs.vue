@@ -4,7 +4,7 @@
       <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" @click="select(t)" :class="{selected:t===selected}" :key="index">{{t}}</div>
     </div>
     <div class="gulu-tabs-content">
-      <component class="gulu-tabs-content-item"  :is="current" :key="selected" />
+      <component class="gulu-tabs-content-item"  v-for="c in defaults" :class="{selected:c.props.title===selected}"  :is="c"/>
     </div>
   </div>
 </template>
@@ -17,6 +17,7 @@ export default {
   props:{selected:{type:String}},
   setup(props,context){
     const defaults=context.slots.default()
+    console.log(defaults)
     defaults.forEach(tab=>{
       if(tab.type!==TabComponent){
         throw new Error('必须是TabComponent！')
@@ -57,6 +58,12 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
+    &-item {
+      display: none;
+      &.selected{
+        display: block;
+      }
+    }
   }
 }
 </style>
