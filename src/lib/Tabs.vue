@@ -13,7 +13,7 @@
 <script lang="ts">
 
 import TabComponent from "./TabComponent.vue";
-import {ref, onMounted, onUpdated} from 'vue'
+import {ref,watchEffect} from 'vue'
 
 export default {
   name: "Tabs.vue",
@@ -22,14 +22,14 @@ export default {
     const indicator = ref<HTMLDivElement>(null)
     const selectedItem = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
-    const x = () => {
-      const {width, left: leftDiv} = selectedItem.value.getBoundingClientRect()
-      const {left} = container.value.getBoundingClientRect()
-      indicator.value.style.width = width + 'px'
-      indicator.value.style.left = (leftDiv - left) + 'px'
-    }
-    onMounted(x)
-    onUpdated(x)
+    watchEffect(()=>{
+      if(selectedItem.value){
+        const {width, left: leftDiv} = selectedItem.value.getBoundingClientRect()
+        const {left} = container.value.getBoundingClientRect()
+        indicator.value.style.width = width + 'px'
+        indicator.value.style.left = (leftDiv - left) + 'px'
+      }
+    })
     const defaults = context.slots.default()
     defaults.forEach(tab => {
       if (tab.type !== TabComponent) {
@@ -42,8 +42,7 @@ export default {
     const select = (title: string) => {
       context.emit('update:selected', title)
     }
-    const current = defaults.filter(tab => tab.props.title === props.selected)[0]
-    return {defaults, titles, current, select, selectedItem, indicator, container}
+    return {defaults, titles,  select, selectedItem, indicator, container}
   }
 }
 </script>
