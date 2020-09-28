@@ -1,6 +1,6 @@
 <template>
-  <div class="topNav" >
-    <div class="logo" >logo</div>
+  <div class="topNav">
+    <div class="logo">logo</div>
     <ul class="menu">
       <li>1</li>
       <li>2</li>
@@ -10,13 +10,14 @@
 </template>
 
 <script lang="ts">
-import {inject,Ref} from 'vue'
+import {inject, Ref} from 'vue'
+
 export default {
   name: "TopNav",
-  setup(){
+  setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible')
-    const toggleVisible=()=>{
-      asideVisible.value=!asideVisible.value
+    const toggleVisible = () => {
+      asideVisible.value = !asideVisible.value
     }
     return {toggleVisible}
   }
@@ -36,6 +37,7 @@ export default {
   z-index: 10;
   justify-content: center;
   align-items: center;
+
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -50,6 +52,7 @@ export default {
       margin: 0 1em;
     }
   }
+
   > .toggleAside {
     display: none;
     width: 24px;
@@ -60,14 +63,15 @@ export default {
     top: 50%;
     transform: translateY(-50%);
   }
-  @media (max-width: 500px){
-    > .menu{
+
+  @media (max-width: 500px) {
+    > .menu {
       display: none;
     }
-    > .logo{
+    > .logo {
       margin: 0 auto;
     }
-    > .toggleAside{
+    > .toggleAside {
       display: inline-block;
     }
 

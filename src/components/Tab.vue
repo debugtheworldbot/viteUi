@@ -12,9 +12,9 @@ import {ref} from 'vue'
 
 export default {
   name: "Tab",
-  components:{TabComponent,Tabs},
-  setup(){
-    const title=ref('nv2222222222222')
+  components: {TabComponent, Tabs},
+  setup() {
+    const title = ref('nv2222222222222')
     return {title}
   }
 }
