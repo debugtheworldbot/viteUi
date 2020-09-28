@@ -1,7 +1,7 @@
 <template>
   <Tabs v-model:selected="title">
     <TabComponent title="nv1">1</TabComponent>
-    <TabComponent title="nv2">2</TabComponent>
+    <TabComponent title="nv2222222222222">2</TabComponent>
   </Tabs>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   name: "Tab",
   components:{TabComponent,Tabs},
   setup(){
-    const title=ref('nv1')
+    const title=ref('nv2222222222222')
     return {title}
   }
 }

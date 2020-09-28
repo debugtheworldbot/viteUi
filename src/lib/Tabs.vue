@@ -1,6 +1,6 @@
 <template>
   <div class="gulu-tabs">
-    <div class="gulu-tabs-nav">
+    <div class="gulu-tabs-nav" ref="container">
       <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" :ref="el=>{if(el) navItems[index]=el}" @click="select(t)" :class="{selected:t===selected}" :key="index">{{t}}</div>
       <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -12,19 +12,24 @@
 
 <script lang="ts">
 import TabComponent from "./TabComponent.vue";
-import {ref,onMounted} from 'vue'
+import {ref,onMounted,onUpdated} from 'vue'
 export default {
   name: "Tabs.vue",
   props:{selected:{type:String}},
   setup(props,context){
     const navItems=ref<HTMLDivElement[]>([])
     const indicator=ref<HTMLDivElement>(null)
-    onMounted(()=>{
+    const container=ref<HTMLDivElement>(null)
+    const x =()=>{
       const divs=navItems.value
       const result = divs.filter(div=>div.classList.contains('selected'))[0]
-      const {width}=result.getBoundingClientRect()
+      const {width,left:leftDiv}=result.getBoundingClientRect()
+      const {left}=container.value.getBoundingClientRect()
       indicator.value.style.width=width + 'px'
-    })
+      indicator.value.style.left=(leftDiv-left) + 'px'
+    }
+    onMounted(x)
+    onUpdated(x)
     const defaults=context.slots.default()
     defaults.forEach(tab=>{
       if(tab.type!==TabComponent){
@@ -38,7 +43,7 @@ export default {
       context.emit('update:selected',title)
     }
     const current=defaults.filter(tab=>tab.props.title===props.selected)[0]
-    return {defaults,titles, current,select,navItems,indicator}
+    return {defaults,titles, current,select,navItems,indicator,container}
   }
 }
 </script>
@@ -71,6 +76,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 0.25s  ;
     }
   }
   &-content {
