@@ -1,7 +1,8 @@
 <template>
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav">
-      <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" @click="select(t)" :class="{selected:t===selected}" :key="index">{{t}}</div>
+      <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" :ref="el=>{if(el) navItems[index]=el}" @click="select(t)" :class="{selected:t===selected}" :key="index">{{t}}</div>
+      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="gulu-tabs-content">
       <component class="gulu-tabs-content-item"  v-for="c in defaults" :class="{selected:c.props.title===selected}"  :is="c"/>
@@ -11,13 +12,20 @@
 
 <script lang="ts">
 import TabComponent from "./TabComponent.vue";
-
+import {ref,onMounted} from 'vue'
 export default {
   name: "Tabs.vue",
   props:{selected:{type:String}},
   setup(props,context){
+    const navItems=ref<HTMLDivElement[]>([])
+    const indicator=ref<HTMLDivElement>(null)
+    onMounted(()=>{
+      const divs=navItems.value
+      const result = divs.filter(div=>div.classList.contains('selected'))[0]
+      const {width}=result.getBoundingClientRect()
+      indicator.value.style.width=width + 'px'
+    })
     const defaults=context.slots.default()
-    console.log(defaults)
     defaults.forEach(tab=>{
       if(tab.type!==TabComponent){
         throw new Error('必须是TabComponent！')
@@ -30,7 +38,7 @@ export default {
       context.emit('update:selected',title)
     }
     const current=defaults.filter(tab=>tab.props.title===props.selected)[0]
-    return {defaults,titles, current,select}
+    return {defaults,titles, current,select,navItems,indicator}
   }
 }
 </script>
@@ -44,6 +52,7 @@ $border-color: #d9d9d9;
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
+    position: relative;
     &-item {
       padding: 8px 0;
       margin: 0 16px;
@@ -54,6 +63,14 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+    }
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
     }
   }
   &-content {
