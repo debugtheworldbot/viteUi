@@ -13,7 +13,7 @@
 <script lang="ts">
 
 import TabComponent from "./TabComponent.vue";
-import {ref,watchEffect} from 'vue'
+import {ref,watchEffect,onMounted} from 'vue'
 
 export default {
   name: "Tabs.vue",
@@ -22,14 +22,15 @@ export default {
     const indicator = ref<HTMLDivElement>(null)
     const selectedItem = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
-    watchEffect(()=>{
-      if(selectedItem.value){
+    onMounted(()=>{
+      watchEffect(()=>{
         const {width, left: leftDiv} = selectedItem.value.getBoundingClientRect()
         const {left} = container.value.getBoundingClientRect()
         indicator.value.style.width = width + 'px'
         indicator.value.style.left = (leftDiv - left) + 'px'
-      }
+      })
     })
+
     const defaults = context.slots.default()
     defaults.forEach(tab => {
       if (tab.type !== TabComponent) {
