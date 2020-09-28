@@ -1,7 +1,7 @@
 <template>
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav" ref="container">
-      <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" :ref="el=>{if(el) navItems[index]=el}" @click="select(t)" :class="{selected:t===selected}" :key="index">{{t}}</div>
+      <div class="gulu-tabs-nav-item" v-for="(t,index) in titles" :ref="el=>{if(t===selected) {selectedItem=el}}" @click="select(t)" :class="{selected:t===selected}" :key="index">{{t}}</div>
       <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="gulu-tabs-content">
@@ -11,39 +11,39 @@
 </template>
 
 <script lang="ts">
+
 import TabComponent from "./TabComponent.vue";
-import {ref,onMounted,onUpdated} from 'vue'
+import {ref, onMounted, onUpdated} from 'vue'
+
 export default {
   name: "Tabs.vue",
-  props:{selected:{type:String}},
-  setup(props,context){
-    const navItems=ref<HTMLDivElement[]>([])
-    const indicator=ref<HTMLDivElement>(null)
-    const container=ref<HTMLDivElement>(null)
-    const x =()=>{
-      const divs=navItems.value
-      const result = divs.filter(div=>div.classList.contains('selected'))[0]
-      const {width,left:leftDiv}=result.getBoundingClientRect()
-      const {left}=container.value.getBoundingClientRect()
-      indicator.value.style.width=width + 'px'
-      indicator.value.style.left=(leftDiv-left) + 'px'
+  props: {selected: {type: String}},
+  setup(props, context) {
+    const indicator = ref<HTMLDivElement>(null)
+    const selectedItem = ref<HTMLDivElement>(null)
+    const container = ref<HTMLDivElement>(null)
+    const x = () => {
+      const {width, left: leftDiv} = selectedItem.value.getBoundingClientRect()
+      const {left} = container.value.getBoundingClientRect()
+      indicator.value.style.width = width + 'px'
+      indicator.value.style.left = (leftDiv - left) + 'px'
     }
     onMounted(x)
     onUpdated(x)
-    const defaults=context.slots.default()
-    defaults.forEach(tab=>{
-      if(tab.type!==TabComponent){
+    const defaults = context.slots.default()
+    defaults.forEach(tab => {
+      if (tab.type !== TabComponent) {
         throw new Error('必须是TabComponent！')
       }
     })
-    const titles=defaults.map(tab=>{
-       return tab.props.title
+    const titles = defaults.map(tab => {
+      return tab.props.title
     })
-    const select=(title:string)=>{
-      context.emit('update:selected',title)
+    const select = (title: string) => {
+      context.emit('update:selected', title)
     }
-    const current=defaults.filter(tab=>tab.props.title===props.selected)[0]
-    return {defaults,titles, current,select,navItems,indicator,container}
+    const current = defaults.filter(tab => tab.props.title === props.selected)[0]
+    return {defaults, titles, current, select, selectedItem, indicator, container}
   }
 }
 </script>
