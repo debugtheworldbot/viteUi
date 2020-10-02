@@ -56,6 +56,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -79,14 +80,14 @@ export default {
   }
   > main {
     flex-grow: 1;
-    padding: 16px;
+    padding: 16px 0;
     background: white;
   }
 }
 aside {
   background: lightblue;
   width: 150px;
-  padding: 70px 16px 16px 16px;
+  padding: 70px 0;
   position: fixed;
   top: 0;
   left: 0;
@@ -98,7 +99,22 @@ aside {
 > ol {
 
 > li {
-  padding: 4px 0;
+
+  > a{
+    display: block;
+    padding: 4px 0;
+    text-decoration:none;
+    &:hover{
+    color: #1890ff;
+    }
+  }
+    > .router-link-active{
+      transition: all 0.25s;
+      color: #1890ff;
+
+      background: white;
+
+    }
 }
 
 }
