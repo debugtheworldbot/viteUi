@@ -77,6 +77,7 @@ export default {
   display: flex;
   > aside {
     flex-shrink: 0;
+    text-align: center;
   }
   > main {
     flex-grow: 1;
