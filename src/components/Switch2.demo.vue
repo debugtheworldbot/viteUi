@@ -1,6 +1,6 @@
+<demo>fuck</demo>
 <template>
   <Switches v-model:value="bool" disabled/>
-
 </template>
 
 <script lang="ts">
@@ -11,7 +11,8 @@ export default {
   name: "Switch1.demo.vue",
   components: {
     Switches,
-  },
+  }, __sourceCode: undefined,
+
   setup() {
     const bool = ref(false)
     return {

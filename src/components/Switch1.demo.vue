@@ -1,6 +1,8 @@
+<demo>
+regular
+</demo>
 <template>
   <Switches v-model:value="bool" />
-
 </template>
 
 <script lang="ts">
@@ -11,7 +13,8 @@ export default {
   name: "Switch1.demo.vue",
   components: {
     Switches,
-  },
+  }, __sourceCode: undefined,
+
   setup() {
     const bool = ref(false)
     return {
