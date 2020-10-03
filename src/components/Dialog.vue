@@ -1,27 +1,19 @@
 <template>
-  <Dialogs v-model:visible="visible" :close-on-click-overlay="false" :ok="f1" :cancel="f2">
-    <template v-slot:title>
-      <strong>title</strong>
-    </template>
-    <template v-slot:content>
-      <div>hi</div>
-      <div>hi222</div>
-      <div>hi333</div>
-    </template>
-  </Dialogs>
-  <Buttons @click="toggle">toggle</Buttons>
+  <Demo :component="Dialog1"/>
+
   <hr>
   <Buttons @click="showDialog">show</Buttons>
 </template>
 
 <script lang="ts">
-import Dialogs from "../lib/Dialogs.vue";
+import Dialog1 from './Dialog1.demo.vue'
 import Buttons from "../lib/Buttons.vue";
 import {ref} from 'vue'
 import {openDialog} from "../lib/openDialog";
+import Demo from "./Demo.vue";
 export default {
   name: "Dialog",
-  components:{Buttons, Dialogs},
+  components:{Demo, Buttons},
   setup(){
     const visible=ref(false)
     const toggle=()=>{
@@ -34,7 +26,7 @@ export default {
     const showDialog=()=>{
       openDialog({title:'title',content:'content',ok(){console.log('ok')},cancel(){console.log('cancel')},closeOnClickOverlay:false})
     }
-    return {visible,toggle,f1,f2,showDialog}
+    return {visible,toggle,f1,f2,showDialog,Dialog1}
   }
 }
 </script>
