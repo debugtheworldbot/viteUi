@@ -7,7 +7,7 @@ regular
 
 <script lang="ts">
 import Switches from '../lib/Switches.vue'
-import {ref} from "vue";
+import {ref} from "vue"
 
 export default {
   name: "Switch1.demo.vue",
