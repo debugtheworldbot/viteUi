@@ -1,5 +1,5 @@
 <demo>
-regular
+常规用法
 </demo>
 <template>
   <Switches v-model:value="bool" />

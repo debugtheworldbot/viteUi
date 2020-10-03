@@ -1,30 +1,9 @@
 <template>
   <div>
     <h1>Switch 组件示例 </h1>
-    <div class="demo">
-      <h2>常规用法</h2>
-      <div class="demo-component">
-      <Switch1/>
-      </div>
-      <div class="demo-actions">
-        <Buttons>查看代码</Buttons>
-      </div>
-      <div class="demo-code">
-        <pre class="language-html" v-html="Prism.highlight(Switch1Code,Prism.languages.html,'html')" />
-      </div>
-    </div>
-    <div class="demo">
-      <h2>支持 disabled </h2>
-      <div class="demo-component">
-        <Switch2/>
-      </div>
-      <div class="demo-actions">
-        <Buttons>查看代码</Buttons>
-      </div>
-      <div class="demo-code">
-        <pre class="language-html" v-html="Prism.highlight(Switch2Code,Prism.languages.html,'html')" />
-      </div>
-    </div>
+    <Demo :component="Switch1" />
+    <Demo :component="Switch2" />
+
   </div>
 </template>
 
@@ -33,6 +12,8 @@ import Switches from '../lib/Switches.vue'
 import Buttons from '../lib/Buttons.vue'
 import Switch1 from './Switch1.demo.vue'
 import Switch2 from './Switch2.demo.vue'
+import Demo from "./Demo.vue";
+
 import 'prismjs'
 import 'prismjs/themes/prism.css'
 const Prism=(window as any).Prism
@@ -42,6 +23,7 @@ import {
 
 export default {
   components: {
+    Demo,
     Switch1,
     Switches,
     Buttons,
@@ -57,7 +39,9 @@ export default {
       bool,
       Switch1Code,
       Switch2Code,
-      Prism
+      Prism,
+      Switch1,
+      Switch2
     }
   }
 }
