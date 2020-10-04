@@ -1,4 +1,4 @@
-<demo>toggle</demo>
+<demo>常规用法</demo>
 <template>
   <Dialogs v-model:visible="visible" :close-on-click-overlay="false" :ok="f1" :cancel="f2">
     <template v-slot:title>
