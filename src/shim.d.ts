@@ -1,4 +1,8 @@
 declare module '*.vue' {
     import Vue from 'vue';
     export default Vue;
+},
+declare module '*.md' {
+    const str:string
+    export default str;
 }
