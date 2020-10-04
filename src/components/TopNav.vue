@@ -1,15 +1,5 @@
 <template>
   <div class="topNav">
-    <router-link to="/" class="logo">
-      <svg class="icon">
-        <use xlink:href="#icon-blade"></use>
-      </svg>
-    </router-link>
-    <ul class="menu">
-      <li>
-        <router-link to="/doc">文档</router-link>
-      </li>
-    </ul>
     <svg v-if="toggleMenuVisible" class="toggleAside" @click="toggleVisible">
         <use xlink:href="#icon-caidan"></use>
     </svg>
@@ -45,7 +35,7 @@ $color: #007974;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 11;
   justify-content: center;
   align-items: center;
 

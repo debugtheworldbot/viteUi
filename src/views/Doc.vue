@@ -1,9 +1,14 @@
 <template>
   <div class="layout">
-    <TopNav toggle-menu-visible class="nav" />
+<!--    <TopNav toggle-menu-visible class="nav" />-->
 
     <div class="content" >
       <aside v-if="asideVisible">
+        <router-link to="/" class="logo">
+          <svg class="icon">
+            <use xlink:href="#icon-blade"></use>
+          </svg>
+        </router-link>
         <h2>文档</h2>
         <ol>
           <li>
@@ -88,12 +93,16 @@ export default {
 aside {
   background: lightblue;
   width: 150px;
-  padding: 70px 0;
+  padding: 16px 0;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   z-index: 10;
+  > .logo > svg{
+    width: 32px;
+    height: 32px;
+  }
 > h2 {
   margin-bottom: 4px;
 }

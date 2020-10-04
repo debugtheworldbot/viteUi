@@ -1,12 +1,13 @@
 <template>
   <div  class="topnavAndBanner">
-    <TopNav/>
+<TopNav/>
     <div class="banner">
-      <h1>UI</h1>
-      <h2>a simple Ui</h2>
+      <h1>Cz Design</h1>
+      <h2>一个简单的UI框架</h2>
       <p class="actions">
-        <a href="https://github.com/debugtheworldbot">github</a>
-        <router-link to="/doc">begin</router-link>
+        <router-link to="/doc">开始使用</router-link>
+
+        <a href="https://github.com/debugtheworldbot">Github</a>
       </p>
       <div class="features">
         <ul>
