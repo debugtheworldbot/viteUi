@@ -1,0 +1,6 @@
+export {default as Switches} from './Switches.vue'
+export {default as Buttons} from './Buttons.vue'
+export {default as Dialogs} from './Dialogs.vue'
+export {default as TabComponent} from './TabComponent.vue'
+export {default as Tabs} from './Tabs.vue'
+export {openDialog as openDialog} from './openDialog'
