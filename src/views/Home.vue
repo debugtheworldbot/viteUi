@@ -7,7 +7,7 @@
       <p class="actions">
         <router-link to="/doc">开始使用</router-link>
 
-        <a href="https://github.com/debugtheworldbot">Github</a>
+        <a href="https://github.com/debugtheworldbot/viteUi">Github</a>
       </p>
       <div class="features">
         <ul>

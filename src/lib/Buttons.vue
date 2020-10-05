@@ -43,6 +43,7 @@ $grey:grey;
 .default-button {
   box-sizing: border-box;
   height: $h;
+  width: auto;
   padding: 0 12px;
   cursor: pointer;
   display: inline-flex;

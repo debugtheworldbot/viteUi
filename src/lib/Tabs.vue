@@ -30,7 +30,7 @@ export default {
         const {left} = container.value.getBoundingClientRect()
         indicator.value.style.width = width + 'px'
         indicator.value.style.left = (leftDiv - left) + 'px'
-      })
+      },{flush:"post"})
     })
 
     const defaults = context.slots.default()
