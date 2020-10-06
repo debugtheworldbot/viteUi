@@ -4,7 +4,7 @@
 然后在你的代码中写入下面的代码
 
 ```
-import {Button, Tabs, Switches, Dialogs} from "cz-ui"
+import {Button, Tabs, Switches, Dialogs} from "cz-ui-v"
 ```
 
 就可以使用我提供的组件了。
@@ -20,7 +20,8 @@ import {Button, Tabs, Switches, Dialogs} from "cz-ui"
   </div>
 </template>
 <script>
-import {Buttons, Tabs, Switches, Dialogs} from "cz-ui"
+import {Buttons,Switches,Dialogs,openDialog,Tabs,TabComponent} from 'cz-ui-v'
+import 'cz-ui-v/dist/lib/CzUi.css'
 export default {
   components: {Buttons}
 }
