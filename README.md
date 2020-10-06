@@ -1,6 +1,6 @@
 # viteUi
 
-## Ui based on Vue3
+Ui based on Vue3
 
 ## using plugins
 [Prism](prismjs.com)
